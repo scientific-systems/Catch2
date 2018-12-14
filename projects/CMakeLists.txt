@@ -270,6 +270,7 @@ SOURCE_GROUP("Surrogates" FILES ${SURROGATE_SOURCES})
 include(CTest)
 
 add_executable(SelfTest ${TEST_SOURCES} ${IMPL_SOURCES} ${REPORTER_SOURCES} ${SURROGATE_SOURCES} ${HEADERS})
+set_property(TARGET ${name} PROPERTY FOLDER "3rdParty/Catch2")
 target_include_directories(SelfTest PRIVATE ${HEADER_DIR})
 
 if(USE_CPP17)

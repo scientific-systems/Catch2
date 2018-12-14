@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 project(CatchCoverageHelper)
 
 add_executable(CoverageHelper coverage-helper.cpp)
+set_property(TARGET CoverageHelper PROPERTY FOLDER "3rdParty/Catch2")
 set_property(TARGET CoverageHelper PROPERTY CXX_STANDARD 11)
 set_property(TARGET CoverageHelper PROPERTY CXX_STANDARD_REQUIRED ON)
 set_property(TARGET CoverageHelper PROPERTY CXX_EXTENSIONS OFF)

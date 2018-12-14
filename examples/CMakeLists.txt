@@ -115,20 +115,27 @@ target_compile_definitions( CatchMainTeamCity PRIVATE CATCH_EXAMPLE_RPT_1=\"incl
 
 foreach( name ${TARGETS_SINGLE_FILE} )
     add_executable( ${name} ${EXAMPLES_DIR}/${name}.cpp ${HEADER_DIR}/catch2/catch.hpp )
+	set_property(TARGET ${name} PROPERTY FOLDER "3rdParty/Catch2/Examples/SingleFile")
 endforeach()
 
 foreach( name ${TARGETS_IDIOMATIC_TESTS} )
     add_executable( ${name} ${EXAMPLES_DIR}/${name}.cpp $<TARGET_OBJECTS:CatchMain> ${HEADER_DIR}/catch2/catch.hpp )
+	set_property(TARGET ${name} PROPERTY FOLDER "3rdParty/Catch2/Examples/Idiomatic")
 endforeach()
 
 add_executable( 020-TestCase ${EXAMPLES_DIR}/020-TestCase-1.cpp ${EXAMPLES_DIR}/020-TestCase-2.cpp ${HEADER_DIR}/catch2/catch.hpp )
-
 #add_executable( 207-Rpt-AutomakeReporter ${EXAMPLES_DIR}/207-Rpt-AutomakeReporter.cpp $<TARGET_OBJECTS:CatchMainAutomake> ${HEADER_DIR}/catch2/catch.hpp )
 #add_executable( 207-Rpt-TapReporter      ${EXAMPLES_DIR}/207-Rpt-TapReporter.cpp      $<TARGET_OBJECTS:CatchMainTap>      ${HEADER_DIR}/catch2/catch.hpp )
 add_executable( 207-Rpt-TeamCityReporter ${EXAMPLES_DIR}/207-Rpt-TeamCityReporter.cpp $<TARGET_OBJECTS:CatchMainTeamCity> ${HEADER_DIR}/catch2/catch.hpp )
 
+set_property(TARGET 020-TestCase PROPERTY FOLDER "3rdParty/Catch2/Examples")
+# set_property(TARGET 207-Rpt-AutomakeReporter PROPERTY FOLDER "3rdParty/Catch2/Examples")
+# set_property(TARGET 207-Rpt-TapReporter PROPERTY FOLDER "3rdParty/Catch2/Examples")
+set_property(TARGET 207-Rpt-TeamCityReporter PROPERTY FOLDER "3rdParty/Catch2/Examples")
+
 #foreach( name ${TARGETS_REPORTERS_TESTS} )
 #    add_executable( ${name} ${EXAMPLES_DIR}/${name}.cpp $<TARGET_OBJECTS:CatchMain> ${HEADER_DIR}/catch2/catch.hpp )
+# 		set_property(TARGET ${name} PROPERTY FOLDER "3rdParty/Catch2/Examples/Reporters")
 #endforeach()
 
 foreach( name ${TARGETS_ALL} )

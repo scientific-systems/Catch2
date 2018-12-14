@@ -18,6 +18,7 @@ set( SINGLE_INCLUDE_PATH ${CATCH_DIR}/single_include )
 
 add_executable(PrefixedMacros ${TESTS_DIR}/X01-PrefixedMacros.cpp)
 target_compile_definitions( PrefixedMacros PRIVATE CATCH_CONFIG_PREFIX_ALL )
+set_property(TARGET PrefixedMacros PROPERTY FOLDER "3rdParty/Catch2/ExtraTests")
 
 add_test(NAME CATCH_CONFIG_PREFIX_ALL COMMAND PrefixedMacros -s)
 set_tests_properties(
@@ -32,6 +33,7 @@ set_tests_properties(
 
 add_executable(DisabledMacros ${TESTS_DIR}/X02-DisabledMacros.cpp)
 target_compile_definitions( DisabledMacros PRIVATE CATCH_CONFIG_DISABLE )
+set_property(TARGET DisabledMacros PROPERTY FOLDER "3rdParty/Catch2/ExtraTests")
 
 add_test(NAME CATCH_CONFIG_DISABLE-1 COMMAND DisabledMacros -s)
 set_tests_properties(
@@ -49,7 +51,9 @@ set_tests_properties(
 
 
 add_executable( DisabledExceptions-DefaultHandler ${TESTS_DIR}/X03-DisabledExceptions-DefaultHandler.cpp )
+set_property(TARGET DisabledMacros-DefaultHandler PROPERTY FOLDER "3rdParty/Catch2/ExtraTests")
 add_executable( DisabledExceptions-CustomHandler ${TESTS_DIR}/X04-DisabledExceptions-CustomHandler.cpp )
+set_property(TARGET DisabledMacros-CustomHandler PROPERTY FOLDER "3rdParty/Catch2/ExtraTests")
 
 foreach(target DisabledExceptions-DefaultHandler DisabledExceptions-CustomHandler)
 target_compile_options( ${target}
@@ -106,6 +110,7 @@ set_tests_properties(
 
 
 add_executable(DisableStringification ${TESTS_DIR}/X11-DisableStringification.cpp)
+set_property(TARGET DisableStringification PROPERTY FOLDER "3rdParty/Catch2/ExtraTests")
 target_compile_definitions( DisableStringification PRIVATE CATCH_CONFIG_DISABLE_STRINGIFICATION )
 add_test(NAME CATCH_CONFIG_DISABLE_STRINGIFICATION COMMAND DisableStringification -r compact -s)
 set_tests_properties(
