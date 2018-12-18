@@ -16,11 +16,11 @@ include(CMakePackageConfigHelpers)
 include(CTest)
 
 option(CATCH_USE_VALGRIND "Perform SelfTests with Valgrind" OFF)
-option(CATCH_BUILD_TESTING "Build SelfTest project" ON)
+option(CATCH_BUILD_TESTING "Build SelfTest project" OFF)
 option(CATCH_BUILD_EXAMPLES "Build documentation examples" OFF)
 option(CATCH_BUILD_EXTRA_TESTS "Build extra tests" OFF)
 option(CATCH_ENABLE_COVERAGE "Generate coverage for codecov.io" OFF)
-option(CATCH_ENABLE_WERROR "Enable all warnings as errors" ON)
+option(CATCH_ENABLE_WERROR "Enable all warnings as errors" OFF) # ON
 option(CATCH_INSTALL_DOCS "Install documentation alongside library" ON)
 option(CATCH_INSTALL_HELPERS "Install contrib alongside library" ON)
 
